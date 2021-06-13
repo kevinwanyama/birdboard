@@ -15,12 +15,22 @@ class ProjectsController extends Controller
     return view('projects.index',compact('projects'));
     }
 
+    public function show(Project $project)
+    {
+
+        return view('projects.show',compact('projects'));
+    }
+
     public function store()
     {
-    //validate
-    //persist
-    App\project::create(request(['title','description']));
-    //redirect
+   
+    $attributes=request()->validate([
+        'title'=>'required',
+        'description'=>'required'
+        ]);
+   
+    project::create($attributes);
+   
     return redirect('/projects');
     }
 }
