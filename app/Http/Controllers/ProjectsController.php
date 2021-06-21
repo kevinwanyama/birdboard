@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\project;
-// use Illuminate\Http\Request;
+ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
@@ -15,7 +15,7 @@ class ProjectsController extends Controller
     return view('projects.index',compact('projects'));
     }
 
-    public function show(Project $project)
+    public function show(Projects $project)
     {
 
         return view('projects.show',compact('projects'));
